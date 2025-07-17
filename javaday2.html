@@ -2,63 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <style>
         body{
             text-align: center;
         }
-        input,select,button{
+        h2,input,button{
             margin: 10px;
             padding: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>calculator program</h1>
-    <p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quam fugiat illo, a corrupti optio neque odio minus quas libero quia facere similique alias molestias odit hic incidunt fugit inventore?</p>
+    <h2>guess program</h2>
+    <input type="number" placeholder="enter the number:" id="num">
+    <button onclick="playgame()">guess the number</button>
+    <p id="feedback"></p>
+    <p id="count"></p>
     <script>
-        let paragraph=document.getElementById("para").style.backgroundColor="red"
-console.log("hello")
-    </script>
-    <input type="number"  placeholder="enetr the number" id="num1">
-    <input type="number" placeholder="enter the number" id="num2">
-    <select id="operation">
-        <option value="add">add</option>
-        <option value="sub">sub</option>
-        <option value="multiplication">multiplication</option>
-        <option value="division">division</option>
-    </select>
-    <button onclick="calculate()">calculate</button>
-    <div id="result">result</div>
-    <script>
-        function calculate(){
-            let num1=document.getElementById("num1").value;
-            let num2=document.getElementById("num2").value;
-            let operation=document.getElementById("operation").value;
-            let result;
-            if(isNaN(num1)||isNaN(num2)){
-                result="check your entered input";
+        let target =Math.floor(Math.random()*100)+1;
+        console.log(target);
+        let count=0;
+        function playgame(){
+            let guess=parseInt(document.getElementById("num").value);
+            count++;
+            if(guess<target){
+                document.getElementById("feedback").innerText="too low";
             }
-            else{
-switch(operation){
-    case "add":
-        result=num1+num2;
-        break;
-        case "sub":
-            result=num1-num2;
-            break;
-            case "multiplication":
-                result=num1*num2;
-                break;
-                case "division":
-                    result=num1/num2;
-                    break;
-}
+            else if(guess>target){
+                document.getElementById("feedback").innerText="too high";
+            }else{
+                document.getElementById("feedback").innerText="your guess is correct"
             }
-            document.getElementById("result").innerText=result;
-
-
+            document.getElementById("feedback").innerText="your attempt"+count;
         }
     </script>
 </body>
