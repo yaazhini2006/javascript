@@ -1,0 +1,31 @@
+let exit = false;
+
+while (!exit) {
+  const option = prompt("Choose: 1-Add 2-Subtract 3-Multiply 4-Divide 5-Exit");
+  const a = parseFloat(prompt("Enter first number:"));
+  const b = parseFloat(prompt("Enter second number:"));
+
+  switch (option) {
+    case "1":
+      console.log("Sum:", a + b);
+      break;
+    case "2":
+      console.log("Difference:", a - b);
+      break;
+    case "3":
+      console.log("Product:", a * b);
+      break;
+    case "4":
+      if (b !== 0) {
+        console.log("Quotient:", a / b);
+      } else {
+        console.log("Cannot divide by zero.");
+      }
+      break;
+    case "5":
+      exit = true;
+      break;
+    default:
+      console.log("Invalid choice.");
+  }
+}
