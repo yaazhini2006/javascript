@@ -1,0 +1,29 @@
+let products = [
+  { id: 1, name: "Pen", price: 10, quantity: 2 },
+  { id: 2, name: "Notebook", price: 50, quantity: 0 },
+  { id: 3, name: "Pencil", price: 5, quantity: 10 }
+];
+
+// Filter products with quantity > 0
+let available = products.filter(p => p.quantity > 0);
+console.log("Available Products:", available);
+
+// Total cost using reduce
+let total = available.reduce((sum, p) => sum + p.price * p.quantity, 0);
+console.log("Total Cost:", total);
+
+// Use slice and splice
+let removed = products.slice(); // shallow copy
+removed.splice(1, 1); // remove 2nd product
+console.log("After Removal:", removed);
+
+// Spread operator to clone
+let updatedProducts = [...products];
+updatedProducts[0] = { ...updatedProducts[0], price: 12 };
+console.log("Updated Products:", updatedProducts);
+
+// Destructuring
+updatedProducts.forEach(p => {
+  let { id, name, price } = p;
+  console.log(`ID: ${id}, Name: ${name}, Price: ${price}`);
+});
