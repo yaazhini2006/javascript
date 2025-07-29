@@ -1,0 +1,35 @@
+let tasks = [];
+
+function addTask(task, callback) {
+  tasks.push(task);
+  callback();
+}
+
+function printTasks() {
+  console.log("Current Tasks:", tasks);
+}
+
+// Arrow function example
+const showMessage = () => console.log("Task Manager Active");
+
+showMessage();
+addTask("Learn JavaScript", printTasks);
+addTask("Build a Project", printTasks);
+
+// Arbitrary arguments
+function multiTask(...taskList) {
+  taskList.forEach(task => tasks.push(task));
+}
+multiTask("Debug code", "Write Docs", "Test App");
+printTasks();
+
+// Scope demo
+let globalVar = "Outside";
+
+function scopeDemo() {
+  let localVar = "Inside";
+  console.log(globalVar); // Accessible
+  console.log(localVar);  // Accessible
+}
+scopeDemo();
+// console.log(localVar); // Error: localVar is not defined
