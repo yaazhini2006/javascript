@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let text="aaba";
+        let pattern=/\a/g;
+        let pattern2=/\a+/g;
+        let pattern3=/\a?/g;
+        let result=text.match(pattern);
+        let result2=text.match(pattern2);
+        let result3=text.match(pattern3);
+        console.log(result)
+        console.log(result2)
+        console.log(result3)
+         
+        let sentence="hai hllo madam\nhaii,i'am fine"
+        let pattern4=/\hai+/igm;
+        let result5=sentence.match(pattern4);
+        console.log(result5)
+        //meta characters
+        //->any Character except newline
+        //\d->digit(0-9)
+        //\w->word Character(letter,digit)
+
+        let digitchar="23dsdw3sa33";
+        let pattern6=/\d+\w/ig;
+        let result6=digitchar.match(pattern6);
+        console.log(result6)
+
+        let username="lab programming";
+        let pattern7=/(\w+)/g;
+        let result7=username.match(pattern7);
+        console.log(result7);
+        console.log(result7[0]);
+        console.log(result7[1]);
+
+        //common regex method
+        //test->return true or false
+       // exec()->returnthe match with groups
+         
+        let lines="appple banana apple graph";
+        let patter8=/apple/;
+        console.log(patter8.test(lines));
+
+    </script>
+</body>
+</html>
