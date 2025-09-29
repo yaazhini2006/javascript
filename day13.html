@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // A Set  is a collection of unique values .it automatically remove duplicates
+        //syntax
+        //let mySet= new Set([iterable]);
+            
+
+        let email=new Set([])
+        email.add("gr.@gmail.com");
+        email.add("yt@gmail.com");
+        email.add("rt@gmail.com");
+        email.add("Rt@gmail.com")
+        console.log(email);
+        //email.delete("yt@gmail.com");
+        console.log(email);
+        //email.clear();
+        console.log(email);
+          
+        for(let mailId of email){
+            console.log(mailId);
+            
+        }
+         email.forEach(x=>{
+
+        console.log(email)
+         });
+
+         let adminpermission=new Set(["read","write","delete"]);
+         let userpermission=new Set(["read"]);
+         function hasPermission(Role,Permission){
+            return Role.has(Permission)
+        
+         }
+         console.log(hasPermission(adminpermission,"delete"));
+         console.log(hasPermission(userpermission,"delete"));
+
+         //unoin,intersection,difference using sets
+           let setA=new Set([1,2,3,4,5,1]);
+           let setB=new Set([6,7,8,9,2,10]);
+           
+           let union=new Set([...setA,...setB]);
+           console.log(union);
+           //intersection
+           let intersection=new Set([...setA].filter(x=>setB.has(x)));
+           console.log(intersection);
+
+           let difference=new Set([...setA].filter(x=>!setB.has(x)));
+           console.log(difference);
+            
+           let user1={
+            name:"javascript"
+           };
+           let user2={
+            name:"python"
+           };
+           let map=new Map();
+           map.set(user1,"welcome");
+           map.set(user2,"hai python");
+           console.log(map);
+
+           for(let message of map.values()){
+            console.log(message);
+           }
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
